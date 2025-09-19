@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
+        //Use player's input on arrows or WASD to move player
         Vector2 playerInputVal = playerInput.Player.Move.ReadValue<Vector2>();
         transform.Translate((new Vector3(playerInputVal.x, playerInputVal.y, 0)) * speed * Time.deltaTime);
 
@@ -39,15 +40,18 @@ public class Player : MonoBehaviour
 
     void Shooting()
     {
+        //Check if shot this frame
         bool input = playerInput.Player.Shooting.WasPressedThisFrame();
         if (input && canShoot)
         {
+            //Instantiate laser
             Instantiate(laserPrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
             canShoot = false;
             StartCoroutine("Cooldown");
         }
     }
 
+    //Prevent multiple shots in one frame
     private IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(1f);
