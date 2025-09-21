@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject meteorPrefab;
     public GameObject bigMeteorPrefab;
+    public GameObject EnemyPrefab;
     public bool gameOver = false;
 
     public int meteorCount = 0;
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour
         //Instantiate player and start spawning  meteors
         playerObj = Instantiate(playerPrefab, transform.position, Quaternion.identity);
         InvokeRepeating("SpawnMeteor", 1f, 2f);
+        InvokeRepeating("SpawnEnemy", 1f, 5f);
 
         //Find camera
         cam = FindAnyObjectByType<CinemachineVirtualCamera>();
@@ -81,6 +83,10 @@ public class GameManager : MonoBehaviour
     void SpawnMeteor()
     {
         Instantiate(meteorPrefab, new Vector3(Random.Range(-8, 8), 7.5f, 0), Quaternion.identity);
+    }
+    void SpawnEnemy()
+    {
+        Instantiate(EnemyPrefab);
     }
 
     void BigMeteor()

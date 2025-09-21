@@ -462,6 +462,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 7158442464957206486, guid: 78da5bc7391e681469a6daeeda50dc41, type: 3}
   meteorPrefab: {fileID: 5841098876348517303, guid: 6d66530d7aa7838409a2fd8d5bf6a0a4, type: 3}
   bigMeteorPrefab: {fileID: 5841098876348517303, guid: d601771a08acde745ae7ef51fc2d67b8, type: 3}
+  EnemyPrefab: {fileID: 7158442464957206486, guid: f55efed6c3b2d564d8943db83301a477, type: 3}
   gameOver: 0
   meteorCount: 0
   cam: {fileID: 2096727726}
